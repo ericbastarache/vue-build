@@ -8,7 +8,13 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    devServer: {
+        contentBase: './dist'
+    },
     plugins: [
+        new UglifyJSPlugin({
+            sourceMap: true
+        }),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: 'Output Management'
